@@ -1,7 +1,7 @@
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
-    let randNum = Math.floor(Math.random() * 3);
-    return choices[randNum];
+    let randIndex = Math.floor(Math.random() * 3); //get number 0 - 2 inclusive
+    return choices[randIndex];
 }
 
 
