@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let choices = ['Rock', 'Paper', 'Scissors'];
     let randIndex = Math.floor(Math.random() * 3); //get number 0 - 2 inclusive
@@ -22,19 +25,29 @@ function playRound(playerSelection, computerSelection) {
     } 
 
     if (beats(playerSelection) === computerSelection) {
+        playerScore++;
         return `You win! ${playerSelection} beats ${computerSelection}`;
     }
 
+    computerScore++;
     return `You lose! ${computerSelection} beats ${playerSelection}`;
 }
 
 let buttons = document.querySelectorAll(".button");
+const player = document.getElementById("playerScore");
+const computer = document.getElementById("computerScore");
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const playerSelection = button.getAttribute("data-name");
         const computerSelection = getComputerChoice();
 
-        console.log(playRound(playerSelection, computerSelection));
+        const results = document.querySelector(".results");
+        const text = document.createElement("p");
+        text.innerText = playRound(playerSelection, computerSelection);
+        results.insertBefore(text, results.lastChild);
+
+        player.innerText = playerScore;
+        computer.innerText = computerScore;
     })
 })
