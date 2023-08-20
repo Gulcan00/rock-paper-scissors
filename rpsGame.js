@@ -28,3 +28,13 @@ function playRound(playerSelection, computerSelection) {
     return `You lose! ${computerSelection} beats ${playerSelection}`;
 }
 
+let buttons = document.querySelectorAll(".button");
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const playerSelection = button.getAttribute("data-name");
+        const computerSelection = getComputerChoice();
+
+        console.log(playRound(playerSelection, computerSelection));
+    })
+})
