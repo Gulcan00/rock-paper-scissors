@@ -4,31 +4,28 @@ function getComputerChoice() {
     return choices[randIndex];
 }
 
+//Gets selection (rock, paper, or scissors) and returns what that selection beats
+function beats(selection) {
+    switch (selection) {
+        case "Rock": return "Scissors";
+        case "Scissors": return "Paper";
+        default: return "Rock";
+    }
+}
 
 function playRound(playerSelection, computerSelection) {
     //Capitalize first letter of playerSelection
     playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
-    if(playerSelection === computerSelection) {
+
+    if (playerSelection === computerSelection) {
         return `It's a tie!`;
-    } else if(playerSelection === 'Rock') {
-        if(computerSelection === 'Scissors') {
-            return 'You win! Rock beats Scissors'; 
-        } else {
-            return 'You lose! Paper beats Rock'; 
-        } 
-    } else if(playerSelection === 'Paper') {
-        if(computerSelection === 'Scissors') {
-            return 'You lose! Scissors beats Paper';
-        } else {
-            return 'You win! Paper beats Rock';
-        } 
-    } else {
-        if(computerSelection === 'Rock') {
-            return 'You lose! Rock beats Scissors';
-        } else {
-            return 'You win! Scissors beats Paper';
-        } 
+    } 
+
+    if (beats(playerSelection) === computerSelection) {
+        return `You win! ${playerSelection} beats ${computerSelection}`;
     }
+
+    return `You lose! ${computerSelection} beats ${playerSelection}`;
 }
 
 function game() {
