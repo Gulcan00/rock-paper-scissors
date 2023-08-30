@@ -44,10 +44,22 @@ buttons.forEach(button => {
 
         const results = document.querySelector(".results");
         const text = document.createElement("p");
+        text.setAttribute("id", "result");
         text.innerText = playRound(playerSelection, computerSelection);
         results.insertBefore(text, results.lastChild);
 
         player.innerText = playerScore;
         computer.innerText = computerScore;
+
+        removeResult();
     })
 })
+
+function removeResult() {
+    setTimeout(() => {
+        const result = document.getElementById("result");
+        const results = document.querySelector(".results");
+
+        results.removeChild(result);
+    }, 3000)
+}
