@@ -19,7 +19,6 @@ function beats(selection) {
 function playRound(playerSelection, computerSelection) {
     //Capitalize first letter of playerSelection
     playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
-
     if (playerSelection === computerSelection) {
         return `It's a tie!`;
     } 
@@ -43,23 +42,29 @@ buttons.forEach(button => {
         const computerSelection = getComputerChoice();
 
         const results = document.querySelector(".results");
-        const text = document.createElement("p");
-        text.setAttribute("id", "result");
-        text.innerText = playRound(playerSelection, computerSelection);
-        results.insertBefore(text, results.lastChild);
+        const result = document.getElementById("round-result");
+        result.innerText = playRound(playerSelection, computerSelection);
 
         player.innerText = playerScore;
         computer.innerText = computerScore;
 
-        removeResult();
+        finalResult();
     })
 })
 
-function removeResult() {
-    setTimeout(() => {
-        const result = document.getElementById("result");
-        const results = document.querySelector(".results");
+function finalResult() {
+    const winner = document.createElement("div");
 
-        results.removeChild(result);
-    }, 3000)
+    if (playerScore + computerScore >= 5) {
+        if (playerScore > computerScore) {
+            winner.innerText = "You won!";
+         } else if (computerScore > playerScore) {
+            winner.innerText = "Computer wins!";
+         } else {
+            winner.innerText = "It's a tie!";
+         }
+    }
+
+    const results = document.querySelector(".results");
+    results.appendChild(winner);
 }
