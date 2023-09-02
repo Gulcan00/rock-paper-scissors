@@ -35,6 +35,8 @@ img:hover {
 
 .footer {
     display: flex;
+    align-items: center;
+    padding-left: 6px;
     gap: 4px;
     width: 100%;
 }
@@ -42,7 +44,7 @@ img:hover {
 
 .header {
     font-family: "Indie Flower";
-    font-size: 2.5em;
+    font-size: 4em;
     font-weight: bold;
     padding: 8px;
 }
