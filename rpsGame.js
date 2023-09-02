@@ -48,23 +48,36 @@ buttons.forEach(button => {
         player.innerText = playerScore;
         computer.innerText = computerScore;
 
-        finalResult();
+        if (playerScore === 5 || computerScore === 5) {
+            finalResult();
+        }
     })
 })
 
 function finalResult() {
     const winner = document.createElement("div");
-
-    if (playerScore + computerScore >= 5) {
-        if (playerScore > computerScore) {
+    
+    if (playerScore === 5) {
             winner.innerText = "You won!";
-         } else if (computerScore > playerScore) {
-            winner.innerText = "Computer wins!";
-         } else {
-            winner.innerText = "It's a tie!";
-         }
     }
+    
+    if (computerScore === 5) {
+            winner.innerText = "Computer wins!";
+    }
+
+    //Reset scores
+    playerScore = 0;
+    computerScore = 0;
+    player.innerText = 0;
+    computer.innerText = 0;
+    const result = document.getElementById("round-result");
+    result.innerText = null;
+         
 
     const results = document.querySelector(".results");
     results.appendChild(winner);
+
+    setTimeout(() => {
+        results.removeChild(winner);
+    }, 3000);
 }
