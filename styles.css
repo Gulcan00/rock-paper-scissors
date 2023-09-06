@@ -44,14 +44,30 @@ img:hover {
 
 
 .title {
-    font-size: 48px;
+    font-size: 2em;
     font-weight: bold;
 }
 
 .header {
-    font-size: 32px;
+    font-size: 1.8em;
     padding: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+th {
+    border-bottom: 2px dashed black;
+}
+
+td, th {
+    padding: 8px;
+}
+
+.results {
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
