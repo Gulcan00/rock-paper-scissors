@@ -79,5 +79,5 @@ function finalResult() {
 
     setTimeout(() => {
         results.removeChild(winner);
-    }, 3000);
+    }, 6000);
 }
