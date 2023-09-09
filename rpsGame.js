@@ -34,7 +34,9 @@ function playRound(playerSelection, computerSelection) {
 
 let buttons = document.querySelectorAll(".button");
 const player = document.getElementById("playerScore");
+player.innerText = playerScore;
 const computer = document.getElementById("computerScore");
+computer.innerText = computerScore;
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
